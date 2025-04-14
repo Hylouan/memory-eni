@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI-MEMORY</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>ENI - MEMORY</h1>
+    </header>
+    <nav>
+        <ul>
+            <option>Accueil</option>
+            <option class="pageActuelle">S'inscrire</option>
+            <option>Se connecter</option>
+            <option>Profil</option>
+            <option>Jouer</option>
+        </ul>
+    </nav>
+    <main class="mainFormulaire">
+        <h2>Inscrivez-vous</h2>
+        <form action="/url" method="post" name="Inscription">
+            <div>
+                <label for="userName">Nom d'utilisateur</label>
+                <input type="text" name="nomUtilisateur" id="userName" required placeholder="3 caractères minimum">
+                <hr>
+            </div>
+            <div>
+                <label for="mail">Entrez votre email</label>
+                <input type="mail" name="email" id="mail" required placeholder="Votre email">
+                <hr>
+            </div>
+            <div>
+                <label for="password">Mot de passe</label>
+                <input type="password" name="mdp" id="password" required placeholder="Votre mot de passe">
+                <hr>
+                <p id="infoMdp">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
+            </div>
+            <div>
+                <label for="confirmpassword">Confirmez le mot de passe</label>
+                <input type="password" name="mdp" id="confirmpassword" required placeholder="Confirmez le mot de passe">
+                <hr>
+            </div>
+            <section class="bouton">
+                <input type="submit" name="creationCompte" value="Création du compte">
+                <input type="reset" name="annuler" value="Annuler">
+            <section>
+        </form>
+    </main>
+
+</body>
+
+</html>
