@@ -1,100 +1,226 @@
-body{
-    background: linear-gradient(rgb(200, 255, 155), rgb(186, 186, 240));
+body {
+    background: linear-gradient(rgb(255, 255, 255), rgb(186, 186, 240));
+    font-family: "DM Sans", sans-serif;
+    background-attachment: fixed;
 }
 
 header {
     display: flex;
     justify-content: center;
-    color: aliceblue;
-    text-shadow: 1px 2px 2px rgb(108, 156, 68);
-    font-size: 2.5em;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: rgb(59, 70, 211);
 }
+
+h1 {
+    margin: 17px 0px;
+    text-shadow: 1.5px 2.5px 2px rgb(132, 140, 255);
+    font-size: 3.5em;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+
+/*Navbar*/
 
 nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    block-size: 40px;
-    background-color: rgb(66, 66, 66);
-    color: aliceblue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: large;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(132, 140, 255);
+    box-shadow: 0px 3px 6px rgba(59, 70, 211, 0.3);
 }
 
-.pageActuelle {
-    text-shadow: 1px 2px 2px rgb(189, 255, 67);
-
+.page {
+    float: left;
 }
 
-#mainAccueil {
-    background-color: rgb(66, 66, 66);
-    margin: 10px 50px 10px 50px;
-    padding: 10px 10px;
-    border-radius: 2%;
-    color: aliceblue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.page a {
+    display: block;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    text
 }
+
+.page a:hover:not(.active) {
+    background-color: rgb(59, 70, 211);
+}
+
+.page a.active {
+    color: #ffffff;
+    background-color: #1cd692;
+}
+
+/**/
+
 
 h2 {
-    display: flex;
-    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 600;
 }
 
-section img {
+.introduction {
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    color: rgb(59, 70, 211);
+}
+
+.accueilBlock {
+    margin: 2rem auto;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(#999, .25);
+    padding: 2rem;
+}
+
+.gridWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.regles {
+    grid-column: 2;
+    margin: 2rem auto;
     display: flex;
+    color: rgb(59, 70, 211);
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    border: dotted;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(#999, .25);
+    padding: .75rem;
+}
+
+.regles h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.infos {
+    justify-items: center;
+    margin-top: 40px;
+}
+
+img {
+    align-self: center;
     justify-self: center;
-    width: 200px;
+    grid-column: 1;
+    grid-row: 1;
+    width: 70%;
+}
+
+
+/*Formulaire inscription*/
+input {
+    appearance: none;
+    border-radius: 0;
 }
 
 .mainFormulaire {
-    background-color: rgb(66, 66, 66);
-    margin: 10px 400px 10px 400px;
-    padding: 10px 10px;
-    border-radius: 2%;
-    color: aliceblue;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-form {
+    margin: 2rem auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(#999, .25);
+    padding: .75rem;
 }
 
-form div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-div input {
-    background-color: unset;
-    border-style: unset;
-}
-
-#infoMdp {
-    margin: unset;
-    color: rgb(118, 118, 118);
-}
-
-hr {
-    margin: unset;
-    width: 527px;
-}
-
-.bouton{
+.mainFormulaire h2 {
+    color: rgb(59, 70, 211);
     align-self: center;
 }
 
-.bouton input{
-    border:unset;
-    border-radius: 3%;
-    margin-right: 5px;
-    height: 20px;
-    box-shadow:1px 2px 2px rgba(0, 0, 0,0.5); ;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: 0.8em;
-    font-weight:bold;
+.card-form {
+    padding: 2rem 1rem 0;
 }
+
+.input {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding-top: 1.5rem;
+
+    &+.input {
+        margin-top: 1.5rem;
+    }
+}
+
+.input-label {
+    color: #8597a3;
+    position: absolute;
+    top: 1.5rem;
+    transition: .25s ease;
+}
+
+.input-field {
+    border: 0;
+    z-index: 1;
+    background-color: transparent;
+    border-bottom: 2px solid #eee;
+    font: inherit;
+    font-size: 1.125rem;
+    padding: .25rem 0;
+
+    &:focus {
+        outline: 0;
+
+        &+.input-label {
+            transform: translateY(-1.5rem);
+        }
+    }
+
+    &:valid {
+        outline: 0;
+        border-bottom-color: #1cd692;
+
+        &+.input-label {
+            color: #1cd692;
+            transform: translateY(-1.5rem);
+        }
+    }
+}
+
+.small {
+    font-size: .8rem;
+    color: #8597a3;
+}
+
+.hidden{
+    display: none;
+    color: red;
+}
+
+.btn-primary {
+    background-color: rgb(59, 70, 211);
+    border-color: rgb(59, 70, 211);
+    margin-top: 3rem;
+
+    &:hover {
+        background-color: rgb(132, 140, 255);
+        border-color: rgb(132, 140, 255);
+    }
+}
+
+.submit {
+    background-color: #03c27c;
+    border-color: #03c27c;
+
+    &:hover {
+        background-color: #1ee49b;
+        border-color: #1ee49b;
+    }
+}
+
+/**/

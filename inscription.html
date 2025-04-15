@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENI-MEMORY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -15,41 +20,39 @@
     </header>
     <nav>
         <ul>
-            <option>Accueil</option>
-            <option class="pageActuelle">S'inscrire</option>
-            <option>Se connecter</option>
-            <option>Profil</option>
-            <option>Jouer</option>
+            <li class="page"><a href="accueil.html">Accueil</a></li>
+            <li class="page"><a class="active" href="inscription.html">S'inscrire</a></li>
+            <li class="page"><a href="connexion.html">Se connecter</a></li>
+            <li class="page"><a href="profil.html">Profil</a></li>
+            <li class="page"><a href="jeu.html">Jouer</a></li>
         </ul>
     </nav>
     <main class="mainFormulaire">
         <h2>Inscrivez-vous</h2>
-        <form action="/url" method="post" name="Inscription">
-            <div>
-                <label for="userName">Nom d'utilisateur</label>
-                <input type="text" name="nomUtilisateur" id="userName" required placeholder="3 caractères minimum">
-                <hr>
+        <form class="card-form" action="/url" method="post" name="Inscription" onSubmit="validate();">
+            <div class="input">
+                <input type="text" class="input-field" name="Nom Utilisateur" id="userName" minlength="3" required />
+                <label class="input-label" for="userName">Nom d'utilisateur</label>
             </div>
-            <div>
-                <label for="mail">Entrez votre email</label>
-                <input type="mail" name="email" id="mail" required placeholder="Votre email">
-                <hr>
+            <div class="input">
+                <input type="mail" class="input-field" name="Email" id="mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
+                <label class="input-label" for="mail">Entrez votre email</label>
             </div>
-            <div>
-                <label for="password">Mot de passe</label>
-                <input type="password" name="mdp" id="password" required placeholder="Votre mot de passe">
-                <hr>
-                <p id="infoMdp">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
+            <div class="input">
+                <input type="password" class="input-field invalid" name="Mot de passe" id="password" pattern="(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}" required />
+                <label class="input-label" for="password">Mot de passe</label>
             </div>
-            <div>
-                <label for="confirmpassword">Confirmez le mot de passe</label>
-                <input type="password" name="mdp" id="confirmpassword" required placeholder="Confirmez le mot de passe">
-                <hr>
+            <p class="small">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
+            <div class="input">
+                <input type="password" class="input-field" name="Confirmation mot de passe" id="confirmPassword" pattern="(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}" required />
+                <label class="input-label" for="confirmpassword">Confirmez mot de passe</label>
             </div>
-            <section class="bouton">
-                <input type="submit" name="creationCompte" value="Création du compte">
-                <input type="reset" name="annuler" value="Annuler">
-            <section>
+            <p class="hidden" id="hidden">Les mots de passe ne sont pas identiques</p>
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary submit" type="submit" name="Création de Compte" value="Création du compte">Création
+                    de compte</button>
+                <button class="btn btn-primary" type="reset" name="Annuler" value="Annuler">Annuler</button>
+            </div>
         </form>
     </main>
 

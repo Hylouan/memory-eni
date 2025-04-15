@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENI-MEMORY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -13,32 +18,39 @@
     <header>
         <h1>ENI - MEMORY</h1>
     </header>
-        <nav>
-            <ul>
-                <option class="pageActuelle">Accueil</option>
-                <option>S'inscrire</option>
-                <option>Se connecter</option>
-                <option>Profil</option>
-                <option>Jouer</option>
-            </ul>
-        </nav>
-    <main id="mainAccueil">
-        <div id="introduction">
-            <p>Bienvenue sur le site du Memory de l'ENI.</p>
-            <p>Venez jouer avec nous et faites le meilleur score possible.</p>
+    <nav>
+        <ul>
+            <li class="page"><a class="active" href="accueil.html">Accueil</a></li>
+            <li class="page"><a href="inscription.html">S'inscrire</a></li>
+            <li class="page"><a href="connexion.html">Se connecter</a></li>
+            <li class="page"><a href="profil.html">Profil</a></li>
+            <li class="page"><a href="jeu.html">Jouer</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="introduction">
+            <h2>Bienvenue sur le site du Memory de l'ENI!</h2>
+            <h4>Venez jouer avec nous et faites le meilleur score possible!</h4>
         </div>
-        <section>
-            <h2>Règle du jeu</h2>
-            <ul>
-                <li>Retournez deux cartes. Si les images sont identiques, le jeu laisse les cartes visibles.</li>
-                <li>Si les images sont différentes, les cartes se retournent faces cachées là où elles étaient.</li>
-                <li>La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</li>
-            </ul>
+        <div class="accueilBlock">
+                    <div class="gridWrapper">
+            <section class="regles">
+                <h2>Règle du jeu</h2>
+                <ul>
+                    <li>Retournez deux cartes. Si les images sont identiques, le jeu laisse les cartes visibles.</li>
+                    <li>Si les images sont différentes, les cartes se retournent faces cachées là où elles étaient.</li>
+                    <li>La partie est terminée lorsque toutes les cartes ont été assemblées par paires.</li>
+                </ul>
+            </section>
             <img src="images/memory-legume/memory_detail.png" alt="Exemple du memory légumes">
-            <p>Si vous voulez vous souvrenir de votre score, inscrivez-vous via le formulaire.</p>
-            <p>Le jeu gardes les <strong>5 meilleurs</strong> scores</p>
-            <p>Si vous voulez relancer une partie, cliquez sur <strong>la barre d'espace</strong></p>
-        </section>
+        </div>            
+        <div class="infos">
+                <p>Si vous voulez vous souvrenir de votre score, inscrivez-vous via le formulaire.</p>
+                <p>Le jeu gardes les <strong>5 meilleurs</strong> scores</p>
+                <p>Si vous voulez relancer une partie, cliquez sur <strong>la barre d'espace</strong></p>
+            </div>
+        </div>
+
     </main>
 </body>
 
