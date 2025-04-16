@@ -29,27 +29,51 @@
     </nav>
     <main class="mainFormulaire">
         <h2>Inscrivez-vous</h2>
-        <form class="card-form" action="/url" method="post" name="Inscription" onSubmit="validate();">
+        <form class="card-form" action="/url" method="post" name="Inscription">
             <div class="input">
                 <input type="text" class="input-field" name="Nom Utilisateur" id="userName" minlength="3" required />
-                <label class="input-label" for="userName">Nom d'utilisateur</label>
+                <label class="input-label" for="userName">Nom d'utilisateur<img class=hidden id="imgUser"
+                        src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small red hidden" id="textUser">3 caractères minimum</p>
+            <div class="input">
+                <input type="mail" class="input-field" name="Email" id="mail"
+                    pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
+                <label class="input-label" for="mail">Entrez votre email<img class=hidden id="imgEmail"
+                        src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small red hidden" id="textEmail">Entrez un email valide</p>
+            <div class="input">
+                <input type="password" class="input-field" name="Mot de passe" id="password"
+                    pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
+                <label class="input-label" for="password">Mot de passe<img class=hidden id=imgPassword
+                        src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small" id="textPassword">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
+            <div class="forceMdp" id="forceMdp">
+                <div class="faible">
+                    <div class="barreCouleur"></div>
+                    <span class="texteForceMdp">Faible</span>
+                </div>
+                <div class="moyen">
+                    <div class="barreCouleur"></div>
+                    <span class="texteForceMdp">Moyen</span>
+                </div>
+                <div class="fort">
+                    <div class="barreCouleur"></div>
+                    <span class="texteForceMdp">Fort</span>
+                </div>
             </div>
             <div class="input">
-                <input type="mail" class="input-field" name="Email" id="mail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
-                <label class="input-label" for="mail">Entrez votre email</label>
+                <input type="password" class="input-field" name="Confirmation mot de passe" id="confirmPassword"
+                    pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
+                <label class="input-label" for="confirmpassword">Confirmez mot de passe<img class=hidden
+                        id=imgConfirmPassword src="images/error.svg" alt="Erreur"></label>
             </div>
-            <div class="input">
-                <input type="password" class="input-field invalid" name="Mot de passe" id="password" pattern="(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}" required />
-                <label class="input-label" for="password">Mot de passe</label>
-            </div>
-            <p class="small">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
-            <div class="input">
-                <input type="password" class="input-field" name="Confirmation mot de passe" id="confirmPassword" pattern="(?=.*?[A-Za-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}" required />
-                <label class="input-label" for="confirmpassword">Confirmez mot de passe</label>
-            </div>
-            <p class="hidden" id="hidden">Les mots de passe ne sont pas identiques</p>
+            <p class="small red hidden" id="textConfirmPassword">Les mots de passe ne sont pas identiques</p>
             <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary submit" type="submit" name="Création de Compte" value="Création du compte">Création
+                <button class="btn btn-primary submit" type="submit" name="Création de Compte"
+                    value="Création du compte">Création
                     de compte</button>
                 <button class="btn btn-primary" type="reset" name="Annuler" value="Annuler">Annuler</button>
             </div>
