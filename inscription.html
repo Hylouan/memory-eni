@@ -11,7 +11,7 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script defer src="inscription.js"></script>
 </head>
 
 <body>
@@ -29,37 +29,37 @@
     </nav>
     <main class="mainFormulaire">
         <h2>Inscrivez-vous</h2>
-        <form class="card-form" action="/url" method="post" name="Inscription">
+        <form class="card-form" id=form action="#" method="get" name="Inscription">
             <div class="input">
                 <input type="text" class="input-field" name="Nom Utilisateur" id="userName" minlength="3" required />
-                <label class="input-label" for="userName">Nom d'utilisateur<img class=hidden id="imgUser"
-                        src="images/error.svg" alt="Erreur"></label>
+                <label class="input-label" for="userName">Nom d'utilisateur<img class="imgValidation hidden" n
+                        id="imgUser" src="images/error.svg" alt="Erreur"></label>
             </div>
             <p class="small red hidden" id="textUser">3 caractères minimum</p>
             <div class="input">
                 <input type="mail" class="input-field" name="Email" id="mail"
                     pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
-                <label class="input-label" for="mail">Entrez votre email<img class=hidden id="imgEmail"
+                <label class="input-label" for="mail">Entrez votre email<img class="imgValidation hidden" id="imgEmail"
                         src="images/error.svg" alt="Erreur"></label>
             </div>
             <p class="small red hidden" id="textEmail">Entrez un email valide</p>
             <div class="input">
                 <input type="password" class="input-field" name="Mot de passe" id="password"
                     pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
-                <label class="input-label" for="password">Mot de passe<img class=hidden id=imgPassword
+                <label class="input-label" for="password">Mot de passe<img class="imgValidation hidden" id=imgPassword
                         src="images/error.svg" alt="Erreur"></label>
             </div>
             <p class="small" id="textPassword">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
             <div class="forceMdp" id="forceMdp">
-                <div class="faible">
+                <div class="hidden" id="faible">
                     <div class="barreCouleur"></div>
                     <span class="texteForceMdp">Faible</span>
                 </div>
-                <div class="moyen">
+                <div class="hidden" id="moyen">
                     <div class="barreCouleur"></div>
                     <span class="texteForceMdp">Moyen</span>
                 </div>
-                <div class="fort">
+                <div class="hidden" id="fort">
                     <div class="barreCouleur"></div>
                     <span class="texteForceMdp">Fort</span>
                 </div>
@@ -67,15 +67,15 @@
             <div class="input">
                 <input type="password" class="input-field" name="Confirmation mot de passe" id="confirmPassword"
                     pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
-                <label class="input-label" for="confirmpassword">Confirmez mot de passe<img class=hidden
+                <label class="input-label" for="confirmpassword">Confirmez mot de passe<img class="imgValidation hidden"
                         id=imgConfirmPassword src="images/error.svg" alt="Erreur"></label>
             </div>
             <p class="small red hidden" id="textConfirmPassword">Les mots de passe ne sont pas identiques</p>
             <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary submit" type="submit" name="Création de Compte"
-                    value="Création du compte">Création
-                    de compte</button>
-                <button class="btn btn-primary" type="reset" name="Annuler" value="Annuler">Annuler</button>
+                <a href="connexion.html" role="button" class="btn btn-primary submit disabled" id=btnSubmit type="submit" name="Création de Compte"
+                    value="Création du compte">Création de compte</a>
+                <button class="btn btn-primary" id=btnReset type="reset" name="Annuler" value="Annuler">Annuler</button>
+                <button class="" id=test type="btn" name="test" value="test">test</button>
             </div>
         </form>
     </main>
