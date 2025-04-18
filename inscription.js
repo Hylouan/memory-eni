@@ -1,91 +1,88 @@
+var texteUser = document.getElementById("userName")
+var imageUser = document.getElementById("imgUser")
+var phraseUser = document.getElementById("textUser")
+var texteEmail = document.getElementById("mail")
+var imageEmail = document.getElementById("imgEmail")
+var phraseEmail = document.getElementById("textEmail")
+var textePassword = document.getElementById("password")
+var imagePassword = document.getElementById("imgPassword")
+var phrasePassword = document.getElementById("textPassword")
+var texteConfirmPassword = document.getElementById("confirmPassword")
+var imageConfirmPassword = document.getElementById("imgConfirmPassword")
+var phraseConfirmPassword = document.getElementById("textConfirmPassword")
+
 //Affiche image Error ou Check selon conditions du champ remplies ou non
 document.getElementById("userName").addEventListener("input", function () {
-    let texte = document.getElementById("userName")
-    let image = document.getElementById("imgUser")
-    let phrase = document.getElementById("textUser")
-
-    image.style.visibility = "visible";
+    imageUser.style.visibility = "visible";
     //quand texte dans les champs le titre du champ reste en haut
-    texte.classList.add("textInInput");
+    texteUser.classList.add("textInInput");
 
-    if (texte.value.length >= 3) {
-        image.src = "images/check.svg";
-        phrase.style.visibility = "hidden";
+    if (texteUser.value.length >= 3) {
+        imageUser.src = "images/check.svg";
+        phraseUser.style.visibility = "hidden";
     }
     else {
-        image.src = "images/error.svg";
-        phrase.style.visibility = "visible";
+        imageUser.src = "images/error.svg";
+        phraseUser.style.visibility = "visible";
     }
 })
 document.getElementById("mail").addEventListener("input", function () {
-    let texte = document.getElementById("mail")
-    let image = document.getElementById("imgEmail")
-    let phrase = document.getElementById("textEmail")
     let regex = /[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 
-    image.style.visibility = "visible";
+    imageEmail.style.visibility = "visible";
     //quand texte dans les champs le titre du champ reste en haut
-    texte.classList.add("textInInput");
+    texteEmail.classList.add("textInInput");
 
-    if (texte.value.match(regex)) {
-        image.src = "images/check.svg";
-        phrase.style.visibility = "hidden";
+    if (texteEmail.value.match(regex)) {
+        imageEmail.src = "images/check.svg";
+        phraseEmail.style.visibility = "hidden";
     }
     else {
-        image.src = "images/error.svg";
-        phrase.style.visibility = "visible";
+        imageEmail.src = "images/error.svg";
+        phraseEmail.style.visibility = "visible";
     }
 })
 document.getElementById("password").addEventListener("input", function () {
-    let texte = document.getElementById("password")
-    let image = document.getElementById("imgPassword")
-    let phrase = document.getElementById("textPassword")
     let forceMdpFaible = document.getElementById("faible")
     let forceMdpMoyen = document.getElementById("moyen")
     let forceMdpFort = document.getElementById("fort")
-
     let regex = /^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$/;
 
-    image.style.visibility = "visible";
+    imagePassword.style.visibility = "visible";
     forceMdpFaible.style.visibility = "visible";
     //quand texte dans les champs le titre du champ reste en haut
-    texte.classList.add("textInInput");
+    textePassword.classList.add("textInInput");
 
-    if (texte.value.match(regex)) {
-        image.src = "images/check.svg";
-        phrase.classList.remove("red");
+    if (textePassword.value.match(regex)) {
+        imagePassword.src = "images/check.svg";
+        phrasePassword.classList.remove("red");
     }
     else {
-        image.src = "images/error.svg";
-        phrase.style.visibility = "visible";
-        phrase.classList.add("red");
+        imagePassword.src = "images/error.svg";
+        phrasePassword.style.visibility = "visible";
+        phrasePassword.classList.add("red");
     }
     //conditions force du mdp
-    if (texte.value.match(/^(?=.*[\d\W])(?!.* ).{6,}$/)) {
+    if (textePassword.value.match(/^(?=.*[\d\W])(?!.* ).{6,}$/)) {
         forceMdpMoyen.style.visibility = "visible";
-        if (texte.value.match(/^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{9,}$/)) {
+        if (textePassword.value.match(/^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{9,}$/)) {
             forceMdpFort.style.visibility = "visible";
         }
     }
 })
 
 document.getElementById("confirmPassword").addEventListener("input", function () {
-    let texteMdp = document.getElementById("password")
-    let texte = document.getElementById("confirmPassword")
-    let image = document.getElementById("imgConfirmPassword")
-    let phrase = document.getElementById("textConfirmPassword")
-
-    image.style.visibility = "visible";
+    imageConfirmPassword.style.visibility = "visible";
     //quand texte dans les champs le titre du champ reste en haut
-    texte.classList.add("textInInput");
+    texteConfirmPassword.classList.add("textInInput");
 
-    if (texte.value == texteMdp.value) {
-        image.src = "images/check.svg";
-        phrase.style.visibility = "hidden";
+    if (texteConfirmPassword.value == textePassword.value) {
+        imageConfirmPassword.src = "images/check.svg";
+        phraseConfirmPassword.style.visibility = "hidden";
     }
     else {
-        image.src = "images/error.svg";
-        phrase.style.visibility = "visible";
+        imageConfirmPassword.src = "images/error.svg";
+        phraseConfirmPassword.style.visibility = "visible";
     }
 })
 
@@ -118,54 +115,56 @@ document.getElementById("form").addEventListener("input", function () {
 })
 
 
+//Enregistrer toutes les valeurs des utilisateurs dans une même key du localStorage
+var utilisateurs = []
 
-//stocker chaque json dans le grand tableau
+document.getElementById("btnSubmit").addEventListener("click", function (event) {
+    event.preventDefault();
+    //Enregistre les input dans un tableau associatif json
+    const userInfo = {
+        nomUtilisateur: texteUser.value,
+        email: texteEmail.value,
+        mdp: textePassword.value,
+    };
+    //Récupère valeur stockée dans le local storage
+    let newObject = localStorage.getItem("users");
+    //Si il y a une valeur elle est récupérée par le tableau "utilisateurs"
+    if (newObject !== null) {
+        utilisateurs = JSON.parse(newObject)
+        let userExists = false;
+        //On vérifie que le nom d'utilisateur et le mail ne sont pas déjà dans la tableau
+        for (let index = 0; index < utilisateurs.length; index++) {
+            if (texteUser.value == utilisateurs[index].nomUtilisateur) {
+                alert("Ce nom d'utilisateur est déjà utilisé")
+                texteUser.value = '';
+                imageUser.src = "images/error.svg";
+                userExists = true;
+                break;
+            }
+            else if (texteEmail.value == utilisateurs[index].email) {
+                alert("Cette adresse email est déjà utilisée")
+                texteEmail.value = '';
+                imageEmail.src = "images/error.svg";
+                userExists = true;
+                break;
+            }
+            }
+            // Si aucun problème, on ajoute le nouvel utilisateur au tableau
+            if (!userExists) {
+                utilisateurs.push(userInfo);
+                //On transforme le tableau "utilisateur" en string et on l'enregistre dans le localStorage
+                localStorage.setItem("users", JSON.stringify(utilisateurs));
+                window.location.href = "connexion.html";
+            }
+        }
+    else {
+            //On ajoute le nouvel utilisateur au tableau
+            utilisateurs.push(userInfo)
+            //On transforme le tableau "utilisateur" en string et on l'enregistre dans le localStorage
+            localStorage.setItem("users", JSON.stringify(utilisateurs))
+            window.location.href = "connexion.html";
+        }
 
-var utilisateurs=[]
+    })
 
-document.getElementById("test").addEventListener("click", function () {
-var userName = document.getElementById("userName").value
-var userEmail = document.getElementById("mail").value
-var userPassword = document.getElementById("password").value
-//Enregistre les input dans un tableau associatif json
-const userInfo = {
-    nomUtilisateur: userName,
-    email: userEmail,
-    mdp: userPassword,
-  };
-
-
-let newObject = localStorage.getItem("users");
-if(newObject!==null){
-  console.log(JSON.parse(newObject))    
-utilisateurs=JSON.parse(newObject)
-console.log(utilisateurs)
-}
-
-
-
-utilisateurs.push(userInfo)
-
-// console.log(utilisateurs)
-//Enregistre tableau "utilisateurs" dans le localStorage
-localStorage.setItem("users",JSON.stringify(utilisateurs))
-
-
-})
-
-// for (let i = 0; i < utilisateurs.length; i++) {
-//     localStorage.setItem("users"+[i],JSON.stringify(utilisateurs[i]))
-// }
-
-
-//   let newObject = localStorage.getItem("userInfo");
-// console.log(JSON.parse(newObject));
-
-
-
-
-
-//parcourir le tableau pour vérifier email déja existant
-//email déjà utilisé
-//nom utilisateur déjà utilisé
 
