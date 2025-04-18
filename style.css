@@ -41,7 +41,6 @@ nav ul {
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
-    text
 }
 
 .page a:hover:not(.active) {
@@ -278,3 +277,4 @@ input {
     background-color: #5a5a5a;
     border: none;
 }
+/**/
