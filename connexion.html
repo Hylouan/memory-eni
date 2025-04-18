@@ -27,6 +27,31 @@
             <li class="page"><a href="jeu.html">Jouer</a></li>
         </ul>
     </nav>
+    <main class="mainFormulaire">
+        <h2>Connectez-vous</h2>
+        <form class="card-form" id=form action="#" method="get" name="Connexion">
+            <div class="input">
+                <input type="text" class="input-field" name="Nom Utilisateur" id="userName" required />
+                <label class="input-label" for="userName">Nom d'utilisateur<img class="imgValidation hidden"
+                        id="imgUser" src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small red hidden" id="textUser">Nom d'utilisateur incorrect</p>
+            <div class="input">
+                <input type="mail" class="input-field" name="Email" id="mail" required />
+                <label class="input-label" for="mail">Email<img class="imgValidation hidden" id="imgEmail"
+                        src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small red hidden" id="textEmail">Adresse email incorrecte</p>
+            <div class="input">
+                <input type="password" class="input-field" name="Mot de passe" id="password" required />
+                <label class="input-label" for="password">Mot de passe<img class="imgValidation hidden" id=imgPassword
+                        src="images/error.svg" alt="Erreur"></label>
+            </div>
+            <p class="small red hidden" id="textPassword">Mot de passe incorrect</p>
+            <a href="connexion.html" role="button" class="btn btn-primary submit disabled" id=btnSubmit type="submit"
+                name="Se connecter" value="Se connecter">Se connecter</a>
+        </form>
+    </main>
 </body>
 
 </html>
