@@ -1,0 +1,43 @@
+   <script defer src="navbar.js"></script>
+
+   <nav class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex-shrink-0 text-white text-2xl font-bold">
+          ENI - MEMORY
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-6 text-white font-medium">
+          <a href="home.html" class="hover:text-purple-300 transition">🏠 Accueil</a>
+          <a href="register.html" class="hover:text-purple-300 transition">✍️ S'inscrire</a>
+          <a href="login.html" class="hover:text-purple-300 transition">🔑 Se connecter</a>
+        </div>
+
+        <!-- Desktop Button -->
+        <div class="hidden md:block">
+          <a href="game.html" class="bg-white text-indigo-700 px-4 py-2 rounded-xl hover:bg-yellow-400 hover:text-black transition-all font-semibold">
+            🎮 Jouer
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-white focus:outline-none text-2xl">
+            ☰
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-white font-medium">
+  <a href="home.html" class="block hover:text-purple-300 transition">🏠 Accueil</a>
+          <a href="register.html" class="block hover:text-purple-300 transition">✍️ S'inscrire</a>
+          <a href="login.html" class="block hover:text-purple-300 transition">🔑 Se connecter</a>
+      <a href="game.html" class="block bg-white text-indigo-700 text-center px-4 py-2 rounded-xl hover:bg-purple-300 transition-all font-semibold mt-2">
+        🎮 Jouer
+      </a>
+    </div>
+  </nav>

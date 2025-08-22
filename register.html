@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENI-MEMORY</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="base.js"></script>
+    <script defer src="register.js"></script>
+</head>
+
+<body>
+    <div id="navbar-container"></div>
+    <main>
+        <div class="min-h-screen flex">
+            <!-- Partie graphique -->
+            <div
+                class="hidden lg:flex lg:w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 justify-center items-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-black opacity-20"></div>
+                <div class="relative z-10 px-10 text-center">
+                    <div
+                        class="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center mb-8 shadow-2xl">
+                        <img class="w-12 h-12" src="images/game-plugins-svgrepo-com.svg" alt="picto d'un puzzle">
+                    </div>
+                    <h1 class="text-4xl font-bold text-white mb-4">Prêt à jouer ?</h1>
+                    <p class="text-white/80 text-lg mb-8">C’est 100% local, 100% fun.<br> Créer ton compte pour
+                        sauvegarder
+                        ton score et défier ta mémoire !</p>
+                </div>
+            </div>
+            <!-- Formulaire -->
+            <div class="w-full lg:w-1/2 flex items-center justify-center bg-white p-8">
+                <div class="w-full max-w-md">
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Bienvenue !</h1>
+                        <p class="text-gray-600 mb-8">Créer ton compte ENIMemory</p>
+                    </div>
+
+                    <form id="form" class="space-y-6">
+
+                        <div>
+                            <label for="username" class="block text-sm font-medium text-gray-700">Pseudo</label>
+                            <input type="text" id="username" name="username"
+                                class="input-field mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Ton pseudo">
+                                <p id="user-check" class="text-sm text-red-600 mt-2 hidden">
+                                Le pseudo doit contenir au moins 3 caractères.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Adresse
+                                e-mail</label>
+                            <input type="email" id="email" name="email"
+                                class="input-field mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="ornek@mail.com">
+                                <p id="email-check" class="text-sm text-red-600 mt-2 hidden">
+                                L'adresse e-mail doit être valide.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Mot de
+                                passe</label>
+                            <input type="password" id="password" name="password"
+                                class="input-field mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="••••••••">
+                            <p id="password-check" class="text-sm text-red-600 mt-2 hidden">
+                                Le mot de passe doit contenir au moins 9 caractères, une majuscule, une minuscule, un
+                                chiffre et un caractère spécial.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirmer le
+                                mot de passe</label>
+                            <input type="password" id="confirm-password" name="confirm-password"
+                                class="input-field mt-1 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="••••••••">
+                                <p id="confirm-password-check" class="text-sm text-red-600 mt-2 hidden">
+                                Les mots de passe ne correspondent pas.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between space-x-4">
+                            <button id="submit" type="submit" disabled
+                                class="w-1/2 flex justify-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 opacity-50 cursor-not-allowed">
+                                S'inscrire
+                            </button>
+                            <button id="reset" type="reset" disabled
+                                class="w-1/2 flex justify-center py-3 px-4 rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 opacity-50 cursor-not-allowed">
+                                Annuler
+                            </button>
+                        </div>
+                    </form>
+
+                    <p class="mt-6 text-center text-sm text-gray-600">
+                        Tu as déjà un compte ?
+                        <a href="login.html" class="font-medium text-blue-600 hover:text-blue-500">Connecte-toi dès
+                            maintenant</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <h2>Inscrivez-vous</h2>
+    <form class="card-form" id=form action="#" method="get" name="Inscription">
+        <div class="input">
+            <input type="text" class="input-field" name="Nom Utilisateur" id="userName" minlength="3" required />
+            <label class="input-label" for="userName">Nom d'utilisateur<img class="imgValidation hidden" id="imgUser"
+                    src="images/error.svg" alt="Erreur"></label>
+        </div>
+        <p class="small red hidden" id="textUser">3 caractères minimum</p>
+        <div class="input">
+            <input type="mail" class="input-field" name="Email" id="mail"
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required />
+            <label class="input-label" for="mail">Entrez votre email<img class="imgValidation hidden" id="imgEmail"
+                    src="images/error.svg" alt="Erreur"></label>
+        </div>
+        <p class="small red hidden" id="textEmail">Entrez un email valide</p>
+        <div class="input">
+            <input type="password" class="input-field" name="Mot de passe" id="password"
+                pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
+            <label class="input-label" for="password">Mot de passe<img class="imgValidation hidden" id=imgPassword
+                    src="images/error.svg" alt="Erreur"></label>
+        </div>
+        <p class="small" id="textPassword">Au moins un symbole, un chiffre, ainsi que 6 caractères minimum</p>
+        <div class="forceMdp" id="forceMdp">
+            <div class="hidden" id="faible">
+                <div class="barreCouleur"></div>
+                <span class="texteForceMdp">Faible</span>
+            </div>
+            <div class="hidden" id="moyen">
+                <div class="barreCouleur"></div>
+                <span class="texteForceMdp">Moyen</span>
+            </div>
+            <div class="hidden" id="fort">
+                <div class="barreCouleur"></div>
+                <span class="texteForceMdp">Fort</span>
+            </div>
+        </div>
+        <div class="input">
+            <input type="password" class="input-field" name="Confirmation mot de passe" id="confirmPassword"
+                pattern="^(?=.*[0-9])(?=.*[A-Za-z])(?=.*\W)(?!.* ).{6,}$" required />
+            <label class="input-label" for="confirmpassword">Confirmez mot de passe<img class="imgValidation hidden"
+                    id=imgConfirmPassword src="images/error.svg" alt="Erreur"></label>
+        </div>
+        <p class="small red hidden" id="textConfirmPassword">Les mots de passe ne sont pas identiques</p>
+        <div class="d-grid gap-2 d-md-block">
+            <a href="connexion.html" role="button" class="btn btn-primary submit disabled" id=btnSubmit type="submit"
+                name="Création de Compte" value="Création du compte">Création de compte</a>
+            <button class="btn btn-primary" id=btnReset type="reset" name="Annuler" value="Annuler">Annuler</button>
+        </div>
+    </form>
+
+</body>
+
+</html>
